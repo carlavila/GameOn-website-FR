@@ -1,12 +1,4 @@
-// NAVBAR
-function editNav() {
-  var nav = document.getElementById("myTopnav");
-  if (nav.className === "topnav") {
-    nav.className += " responsive";
-  } else {
-    nav.className = "topnav";
-  }
-}
+
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
@@ -26,12 +18,12 @@ function launchModal() {
 
 // Close modal event
 modalCross.addEventListener("click", closeModal);
-// close modal form CROSS
+// Close modal form
 function closeModal() {
   modalbg.style.display = "none";
   /* Modal formIsValid */
   formIsValid.style.display = "none";
-  /* reload for empty form */
+  /* reload for empty form (vide) */
   document.location.reload();
 }
 //Close modal form is valid BTN
@@ -167,9 +159,9 @@ function formRadioLocation() {
   }
 }
 /* FORM */
-const form_registration = document.getElementById("registration");
+const form = document.getElementById("form");
 /* EVENT SUBMIT FORM */
-form_registration.addEventListener("submit", function (e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
   formFirstName();
   formLastName();
