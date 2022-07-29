@@ -9,8 +9,9 @@ const btnCloseModalFormIsValid = document.querySelector(".btn__closeModal");
 
 
 /* MODAL FUNCTION */
+
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // permet d'exécuter une fonction donnée sur chaque élément du tableau.
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
@@ -44,7 +45,7 @@ const partEvent = document.getElementById("quantity");
 const radioLocation = document.getElementsByName("location");
 const checkCondition = document.getElementById("checkbox1");
 
-/* FUNCTION FOR ALL EL FORM */
+// FIRSTNAME
 function formFirstName() {
   const errorFirstName = document.getElementById("error_first_name");
   const regexLetters = new RegExp(/^[A-Za-z-]+$/);
@@ -65,6 +66,8 @@ function formFirstName() {
     return true;
   }
 }
+
+// LASTNAME
 function formLastName() {
   const errorLastName = document.getElementById("error_last_name");
   const regexLetters = new RegExp(/^[A-Za-z-]+$/);
@@ -85,9 +88,11 @@ function formLastName() {
     return true;
   }
 }
+
+// EMAIL
 function formEmail() {
   const errorEmail = document.getElementById("error_email");
-  const regexEmail = new RegExp(/\S+@\S+\.\S+/);
+  const regexEmail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
   if (!email.value) {
     errorEmail.innerHTML = "Veuillez renseigner votre email";
     errorEmail.style.display = "block";
@@ -101,6 +106,8 @@ function formEmail() {
     return true;
   }
 }
+
+//BIRTHDATE
 function formBirthDate() {
   const errorBirthdate = document.getElementById("error_birthdate");
   if (!birthdate.value) {
@@ -115,6 +122,8 @@ function formBirthDate() {
     return true;
   }
 }
+
+// EVENT
 function formPartEvent() {
   const errorPartEvent = document.getElementById("error_partevent");
   const regexPartEvent = new RegExp("^[0-9][0-9]?$|^99$");
@@ -132,18 +141,7 @@ function formPartEvent() {
     return true;
   }
 }
-function formCheckCondition() {
-  const errorCheckCondition = document.getElementById("error_checkCondition");
-  if (!checkCondition.checked) {
-    errorCheckCondition.innerHTML =
-      "Veuillez accepter les conditions d'utilisation.";
-    errorCheckCondition.style.display = "block";
-    return false;
-  } else {
-    errorCheckCondition.style.display = "none";
-    return true;
-  }
-}
+// LOCATION
 function formRadioLocation() {
   const errorRadioLocation = document.getElementById("error_radioLocation");
   const result = Array.from(radioLocation).filter(
@@ -158,6 +156,22 @@ function formRadioLocation() {
     return false;
   }
 }
+
+// CONDITIONS
+function formCheckCondition() {
+  const errorCheckCondition = document.getElementById("error_checkCondition");
+  if (!checkCondition.checked) {
+    errorCheckCondition.innerHTML =
+      "Veuillez accepter les conditions d'utilisation.";
+    errorCheckCondition.style.display = "block";
+    return false;
+  } else {
+    errorCheckCondition.style.display = "none";
+    return true;
+  }
+}
+
+
 /* FORM */
 const form = document.getElementById("form");
 /* EVENT SUBMIT FORM */
